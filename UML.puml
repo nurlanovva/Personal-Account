@@ -1,0 +1,30 @@
+@startuml
+class Amount {
+    - amount: float
+    - timestamp: datetime
+    - transaction_type: str
+    + __init__(amount: float, transaction_type: str)
+    + __str__(): str
+}
+
+class PersonalAccount {
+    - account_number: int
+    - account_holder: str
+    - balance: float
+    - transactions: list
+    + __init__(account_number: int, account_holder: str)
+    + deposit(amount: float)
+    + withdraw(amount: float)
+    + print_transaction_history()
+    + get_balance(): float
+    + get_account_number(): int
+    + set_account_number(account_number: int)
+    + get_account_holder(): str
+    + set_account_holder(account_holder: str)
+    + __str__(): str
+    + __add__(amount: float)
+    + __sub__(amount: float)
+}
+
+PersonalAccount "1" -- "0..*" Amount : has
+@enduml
